@@ -74,6 +74,7 @@ class EmployeTest {
             "M12345,0, 1, 0.5, 850.0",
             "M12345,1, 1, 1.0, 1800.0",
             "'T12345', 0,1,1.0,1000.0",
+            "'T12345', 0,0,1.0,1000.0",
     })
     void TestgetPrimeAnnuelle(String matricule, Integer nbAnneeAnciennete, Integer performance, Double tempsPartiel, Double primeCalculee){
         //Given, When, Then
