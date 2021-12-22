@@ -20,7 +20,7 @@ class EmployeTest {
         //Given
         Employe employe = new Employe("Dupont","Julien","T12345", LocalDate.now(), 2500.0, 1, 1.0);
         //When
-       Integer nbAnnees = employe.getNombreAnneeAnciennete();
+        Integer nbAnnees = employe.getNombreAnneeAnciennete();
         //Then
         Assertions.assertThat(nbAnnees).isEqualTo(0);
 
@@ -84,6 +84,57 @@ class EmployeTest {
         Assertions.assertThat(primeCalculee).isEqualTo(primeCalculee);
 
     }
+    @Test
+    void getAugmenterSalaire() {
+        //Given
+        Employe employe = new Employe("Dupont","Julien","M12345",LocalDate.now() ,1000.0, 1,1.0 );
+        //When
+        Double augmentation = employe.augmenterSalaire(2.0);
+        //Then
+        Assertions.assertThat(augmentation).isEqualTo(1020.0);
+    }
+
+    @Test
+    void getAugmenterSalaireAZero() {
+        //Given
+        Employe employe = new Employe("Dupont","Julien","M12345",LocalDate.now() ,0.0, 1,1.0 );
+        //When
+        Double augmentation = employe.augmenterSalaire(20.0);
+        //Then
+        Assertions.assertThat(augmentation).isZero();
+    }
+
+    @Test
+    void getAugmenterSalaireNull() {
+    //Given
+        Employe employe = new Employe("Dupont","Julien","M12345",LocalDate.now() ,null, 1,1.0 );
+    //When
+        Double augmentation = employe.augmenterSalaire(20.0);
+    //Then
+        Assertions.assertThat(employe.getSalaire()).isNull();
+    }
+
+    @Test
+    void getAugmenterSalairePourcentZero() {
+        //Given
+        Employe employe = new Employe("Dupont","Julien","M12345",LocalDate.now() ,1000.0, 1,1.0 );
+        //When
+        Double augmentation = employe.augmenterSalaire(0.0);
+        //Then
+        Assertions.assertThat(augmentation).isEqualTo(1000);
+    }
+
+    @Test
+    void getAugmenterSalaireNegatif() {
+        //Given
+        Employe employe = new Employe("Dupont","Julien","M12345",LocalDate.now() ,-1000.0, 1,1.0 );
+        //When
+        Double augmentation = employe.augmenterSalaire(20.0);
+        //Then
+        Assertions.assertThat(augmentation).isEqualTo(-1200);
+    }
+
+
 
 
 
