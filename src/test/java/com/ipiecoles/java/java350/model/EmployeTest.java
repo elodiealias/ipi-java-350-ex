@@ -89,7 +89,7 @@ class EmployeTest {
         //Given
         Employe employe = new Employe("Dupont","Julien","M12345",LocalDate.now() ,1000.0, 1,1.0 );
         //When
-        Double augmentation = employe.AugmenterSalaire(2.0);
+        Double augmentation = employe.augmenterSalaire(2.0);
         //Then
         Assertions.assertThat(augmentation).isEqualTo(1020.0);
     }
@@ -99,9 +99,9 @@ class EmployeTest {
         //Given
         Employe employe = new Employe("Dupont","Julien","M12345",LocalDate.now() ,0.0, 1,1.0 );
         //When
-        Double augmentation = employe.AugmenterSalaire(20.0);
+        Double augmentation = employe.augmenterSalaire(20.0);
         //Then
-        Assertions.assertThat(augmentation).isEqualTo(0);
+        Assertions.assertThat(augmentation).isZero();
     }
 
     @Test
@@ -109,7 +109,7 @@ class EmployeTest {
     //Given
         Employe employe = new Employe("Dupont","Julien","M12345",LocalDate.now() ,null, 1,1.0 );
     //When
-        Double augmentation = employe.AugmenterSalaire(20.0);
+        Double augmentation = employe.augmenterSalaire(20.0);
     //Then
         Assertions.assertThat(employe.getSalaire()).isNull();
     }
@@ -119,7 +119,7 @@ class EmployeTest {
         //Given
         Employe employe = new Employe("Dupont","Julien","M12345",LocalDate.now() ,1000.0, 1,1.0 );
         //When
-        Double augmentation = employe.AugmenterSalaire(0.0);
+        Double augmentation = employe.augmenterSalaire(0.0);
         //Then
         Assertions.assertThat(augmentation).isEqualTo(1000);
     }
@@ -129,7 +129,7 @@ class EmployeTest {
         //Given
         Employe employe = new Employe("Dupont","Julien","M12345",LocalDate.now() ,-1000.0, 1,1.0 );
         //When
-        Double augmentation = employe.AugmenterSalaire(20.0);
+        Double augmentation = employe.augmenterSalaire(20.0);
         //Then
         Assertions.assertThat(augmentation).isEqualTo(-1200);
     }

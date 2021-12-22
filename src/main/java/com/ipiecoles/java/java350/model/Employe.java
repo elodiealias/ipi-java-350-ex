@@ -117,10 +117,9 @@ public class Employe {
     }
 
     //Augmenter salaire
-    public Double AugmenterSalaire(Double pourcentage){
+    public Double augmenterSalaire(Double pourcentage){
         if(salaire != null) {
-            Double augmentation = this.salaire + ((this.salaire * pourcentage) / 100);
-            return augmentation;
+            return this.salaire + ((this.salaire * pourcentage) / 100);
         }
         return null;
     }
