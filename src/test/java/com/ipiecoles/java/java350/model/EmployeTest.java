@@ -104,15 +104,15 @@ class EmployeTest {
         Assertions.assertThat(augmentation).isEqualTo(0);
     }
 
-    //@Test
-    //void getAugmenterSalaireNull() {
+    @Test
+    void getAugmenterSalaireNull() {
     //Given
-    //    Employe employe = new Employe("Dupont","Julien","M12345",LocalDate.now() ,null, 1,1.0 );
+        Employe employe = new Employe("Dupont","Julien","M12345",LocalDate.now() ,null, 1,1.0 );
     //When
-    //    Double augmentation = employe.AugmenterSalaire(20.0);
+        Double augmentation = employe.AugmenterSalaire(20.0);
     //Then
-    //    Assertions.assertThat(augmentation).isEqualTo(null);
-    //}
+        Assertions.assertThat(employe.getSalaire()).isNull();
+    }
 
     @Test
     void getAugmenterSalairePourcentZero() {

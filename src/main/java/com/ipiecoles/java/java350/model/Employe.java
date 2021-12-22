@@ -118,8 +118,11 @@ public class Employe {
 
     //Augmenter salaire
     public Double AugmenterSalaire(Double pourcentage){
-        Double augmentation = this.salaire + ((this.salaire*pourcentage)/100);
-        return augmentation;
+        if(salaire != null) {
+            Double augmentation = this.salaire + ((this.salaire * pourcentage) / 100);
+            return augmentation;
+        }
+        return null;
     }
 
     public Long getId() {
